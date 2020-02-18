@@ -9,11 +9,12 @@
     <script>
 
         (async () => {
-            let url = 'https://jsonplaceholder.typicode.com/users';
+            //let url = 'https://jsonplaceholder.typicode.com/users';
+            let url = 'data.json';
             let response = await fetch(url);
             let res = await response.json();
-
-            drawTable(res);
+            console.log(res);
+            //drawTable(res);
             })();
 
 
