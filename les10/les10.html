@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Les10</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+
+        (async () => {
+            let url = 'https://jsonplaceholder.typicode.com/users';
+            let response = await fetch(url);
+            let res = await response.json();
+
+            drawTable(res);
+            })();
+
+
+            // function loadData() {
+            //     let xhr = new XMLHttpRequest();
+            //     let url = 'https://jsonplaceholder.typicode.com/users';
+            //     xhr.onreadystatechange = function() {
+            //         if(this.readyState == 4 && this.status == 200) {
+            //             console.log(this.responseText);
+            //         }
+            //         console.log(this);
+            //     }
+            //
+            //
+            //     xhr.open("POST", url, true);
+            //     xhr.setRequestHeader("Content-type", "json");
+            //     xhr.send();
+            // }
+
+            function drawTable(data) {
+                let table = document.createElement('table');
+                let html = '';
+
+                data.forEach((obj) => {
+                    html += `
+                          <tr>
+                            <td>${obj.id}</td>
+                            <td>${obj.name}</td>
+                            <td>${obj.username}</td>
+                            <td>${obj.email}</td>
+                              </tr>
+                        `;
+                });
+                table.innerHTML = html;
+                root.appendChild(table);
+         }
+
+         //loadData();
+    </script>
+</body>
+</html>
